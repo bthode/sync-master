@@ -35,6 +35,7 @@ testing {
 }
 
 java {
+    sourceCompatibility = JavaVersion.VERSION_19
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(19))
     }
@@ -71,16 +72,3 @@ dependencies {
 kotlin {
     jvmToolchain(19)
 }
-
-//tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-//    kotlinOptions.jvmTarget = "18"
-//}
-//
-//tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java) {
-//    kotlinOptions.jvmTarget = "1.8"
-//}
-//
-//tasks.withType(JavaCompile::class.java) {
-//    targetCompatibility = "1.8"
-//    sourceCompatibility = "1.8"
-//}
