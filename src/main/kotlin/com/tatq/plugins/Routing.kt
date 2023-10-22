@@ -22,6 +22,9 @@ fun Application.configureRouting() {
         get<Articles> { article ->
             call.respond("List of articles sorted starting from ${article.sort}")
         }
+        get<Users> {users ->
+            call.respond("List of articles sorted starting from ${users.users.toString()}")
+        }
         // Static plugin. Try to access `/static/index.html`
         staticResources("/", "static") {
             default("index.html")
@@ -32,3 +35,7 @@ fun Application.configureRouting() {
 @Serializable
 @Resource("/articles")
 class Articles(val sort: String? = "new")
+
+@Serializable
+@Resource("/users")
+class Users(val users: List<String> = listOf("Bob", "Alice"))

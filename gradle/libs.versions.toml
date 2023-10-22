@@ -1,25 +1,34 @@
+[versions]
+kotlin = "1.9.10"
+ktorVersion = "2.3.4"
+kspVersion = "1.9.10-1.0.13"
+
 [libraries]
 h2 = { module = "com.h2database:h2", version = "2.2.224" }
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version = "1.9.10" }
-ktor-bom = { module = "io.ktor:ktor-bom", version = "2.3.4" }
-ktor-serialization-gson-jvm = { module = "io.ktor:ktor-serialization-gson-jvm", version = "2.3.4" }
-ktor-serialization-kotlinx-json-jvm = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version = "2.3.4" }
-ktor-server-auth-jvm = { module = "io.ktor:ktor-server-auth-jvm", version = "2.3.4" }
-ktor-server-call-id-jvm = { module = "io.ktor:ktor-server-call-id-jvm", version = "2.3.4" }
-ktor-server-call-logging-jvm = { module = "io.ktor:ktor-server-call-logging-jvm", version = "2.3.4" }
-ktor-server-compression-jvm = { module = "io.ktor:ktor-server-compression-jvm", version = "2.3.4" }
-ktor-server-conditional-headers-jvm = { module = "io.ktor:ktor-server-conditional-headers-jvm", version = "2.3.4" }
-ktor-server-content-negotiation-jvm = { module = "io.ktor:ktor-server-content-negotiation-jvm", version = "2.3.4" }
-ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version = "2.3.4" }
-ktor-server-cors-jvm = { module = "io.ktor:ktor-server-cors-jvm", version = "2.3.4" }
-ktor-server-default-headers-jvm = { module = "io.ktor:ktor-server-default-headers-jvm", version = "2.3.4" }
-ktor-server-host-common-jvm = { module = "io.ktor:ktor-server-host-common-jvm", version = "2.3.4" }
-ktor-server-jetty-jvm = { module = "io.ktor:ktor-server-jetty-jvm", version = "2.3.4" }
-ktor-server-openapi = { module = "io.ktor:ktor-server-openapi", version = "2.3.4" }
-ktor-server-partial-content-jvm = { module = "io.ktor:ktor-server-partial-content-jvm", version = "2.3.4" }
-ktor-server-resources = { module = "io.ktor:ktor-server-resources", version = "2.3.4" }
-ktor-server-sessions-jvm = { module = "io.ktor:ktor-server-sessions-jvm", version = "2.3.4" }
-ktor-server-swagger-jvm = { module = "io.ktor:ktor-server-swagger-jvm", version = "2.3.4" }
-ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version = "2.3.4" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
+ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktorVersion" }
+ktor-serialization-gson-jvm = { module = "io.ktor:ktor-serialization-gson-jvm", version.ref = "ktorVersion" }
+ktor-serialization-kotlinx-json-jvm = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktorVersion" }
+ktor-server-auth-jvm = { module = "io.ktor:ktor-server-auth-jvm", version.ref = "ktorVersion" }
+ktor-server-call-id-jvm = { module = "io.ktor:ktor-server-call-id-jvm", version.ref = "ktorVersion" }
+ktor-server-call-logging-jvm = { module = "io.ktor:ktor-server-call-logging-jvm", version.ref = "ktorVersion" }
+ktor-server-compression-jvm = { module = "io.ktor:ktor-server-compression-jvm", version.ref = "ktorVersion" }
+ktor-server-conditional-headers-jvm = { module = "io.ktor:ktor-server-conditional-headers-jvm", version.ref = "ktorVersion" }
+ktor-server-content-negotiation-jvm = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktorVersion" }
+ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktorVersion" }
+ktor-server-cors-jvm = { module = "io.ktor:ktor-server-cors-jvm", version.ref = "ktorVersion" }
+ktor-server-default-headers-jvm = { module = "io.ktor:ktor-server-default-headers-jvm", version.ref = "ktorVersion" }
+ktor-server-host-common-jvm = { module = "io.ktor:ktor-server-host-common-jvm", version.ref = "ktorVersion" }
+ktor-server-jetty-jvm = { module = "io.ktor:ktor-server-jetty-jvm", version.ref = "ktorVersion" }
+ktor-server-openapi = { module = "io.ktor:ktor-server-openapi", version.ref = "ktorVersion" }
+ktor-server-partial-content-jvm = { module = "io.ktor:ktor-server-partial-content-jvm", version.ref = "ktorVersion" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktorVersion" }
+ktor-server-sessions-jvm = { module = "io.ktor:ktor-server-sessions-jvm", version.ref = "ktorVersion" }
+ktor-server-swagger-jvm = { module = "io.ktor:ktor-server-swagger-jvm", version.ref = "ktorVersion" }
+ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktorVersion" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.4.11" }
 postgresql = { module = "org.postgresql:postgresql", version = "42.6.0" }
+
+[plugins]
+kotlinjvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinter = { id = "org.jmailen.kotlinter", version = "3.16.0" }

@@ -5,10 +5,10 @@ val logbackVersion: String by project
 val postgresVersion: String by project
 val h2Version: String by project
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("io.ktor.plugin") version "2.3.4"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
-    id("org.jmailen.kotlinter") version "3.16.0"
+    alias(libs.plugins.kotlinjvm)
+    id("io.ktor.plugin") version "2.3.4" // TODO libs alias?
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10" // TODO libs alias?
+    alias(libs.plugins.kotlinter)
     application
 }
 
@@ -26,13 +26,22 @@ repositories {
     mavenCentral()
 }
 
-testing {
-    suites {
-        val test by getting(JvmTestSuite::class) {
-            useKotlinTest("1.9.0")
-        }
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
     }
 }
+
+
+// Only useJUnitPlatform working at time of change
+//testing {
+//    suites {
+//        val test by getting(JvmTestSuite::class) {
+//            useKotlinTest("1.9.0")
+//        }
+//    }
+//}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_19
