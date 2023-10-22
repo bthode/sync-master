@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.9.10"
-ktorVersion = "2.3.4"
-kspVersion = "1.9.10-1.0.13"
+ktorVersion = "2.3.5"
+#kspVersion = "1.9.10-1.0.13"
 
 [libraries]
 h2 = { module = "com.h2database:h2", version = "2.2.224" }
@@ -31,4 +31,5 @@ postgresql = { module = "org.postgresql:postgresql", version = "42.6.0" }
 
 [plugins]
 kotlinjvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlinter = { id = "org.jmailen.kotlinter", version = "3.16.0" }
+kotlinter = { id = "org.jmailen.kotlinter", version = "4.0.0" }
+kotser = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

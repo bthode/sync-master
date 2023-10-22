@@ -22,8 +22,8 @@ fun Application.configureRouting() {
         get<Articles> { article ->
             call.respond("List of articles sorted starting from ${article.sort}")
         }
-        get<Users> {users ->
-            call.respond("List of articles sorted starting from ${users.users.toString()}")
+        get<Users> { users ->
+            call.respond("List of articles sorted starting from ${users.users}")
         }
         // Static plugin. Try to access `/static/index.html`
         staticResources("/", "static") {
