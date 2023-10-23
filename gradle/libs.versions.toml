@@ -1,12 +1,25 @@
 [versions]
 kotlin = "1.9.10"
 ktorVersion = "2.3.5"
-#kspVersion = "1.9.10-1.0.13"
+kotlinxSerialization = "1.6.0"
+kotlinxCoroutines = "1.7.3"
 
 [libraries]
+gson = { module = "com.google.code.gson:gson", version = "2.10.1" }
 h2 = { module = "com.h2database:h2", version = "2.2.224" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version = "5.9.2" } # Bringing in submodules??
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+kotlinx-seraliazation-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerialization" }
+kotlinx-seraliazation-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktorVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktor-http = { module = "io.ktor:ktor-http", version.ref = "ktorVersion" }
+ktor-plugins = { module = "io.ktor:ktor-plugins", version.ref = "ktorVersion" }
+ktor-resources = { module = "io.ktor:ktor-resources", version.ref = "ktorVersion" }
+ktor-seraliazation = { module = "io.ktor:ktor-serialization", version.ref = "ktorVersion" }
 ktor-serialization-gson-jvm = { module = "io.ktor:ktor-serialization-gson-jvm", version.ref = "ktorVersion" }
 ktor-serialization-kotlinx-json-jvm = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktorVersion" }
 ktor-server-auth-jvm = { module = "io.ktor:ktor-server-auth-jvm", version.ref = "ktorVersion" }
@@ -25,11 +38,17 @@ ktor-server-partial-content-jvm = { module = "io.ktor:ktor-server-partial-conten
 ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktorVersion" }
 ktor-server-sessions-jvm = { module = "io.ktor:ktor-server-sessions-jvm", version.ref = "ktorVersion" }
 ktor-server-swagger-jvm = { module = "io.ktor:ktor-server-swagger-jvm", version.ref = "ktorVersion" }
-ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktorVersion" }
+ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktorVersion" }
+#ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktorVersion" }
+ktor-utils = { module = "io.ktor:ktor-utils", version.ref = "ktorVersion" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.4.11" }
 postgresql = { module = "org.postgresql:postgresql", version = "42.6.0" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.5" }
 
 [plugins]
+dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version = "1.25.0" }
 kotlinjvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version = "4.0.0" }
+kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotser = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ktorPlugin = { id = "io.ktor.plugin", version.ref = "ktorVersion" }

@@ -9,6 +9,10 @@ import com.tatq.plugins.configureSerialization
 import io.ktor.server.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.jetty.Jetty
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 fun main() {
     embeddedServer(Jetty, port = 8080, host = "0.0.0.0", module = Application::module)
@@ -20,6 +24,19 @@ fun Application.module() {
     configureHTTP()
     configureMonitoring()
     configureSerialization()
-    configureDatabases()
+    configureDatabases() // Do db migration here if it isn't in the state we need.
     configureRouting()
+    launchPeriodicCoroutine()
+}
+
+fun launchPeriodicCoroutine() {
+    // Launch a coroutine using Dispatchers.IO
+    runBlocking {
+        launch(Dispatchers.IO) {
+            while (true) {
+                println("Coroutine executed at ${System.currentTimeMillis()}")
+                delay(30000)
+            }
+        }
+    }
 }
