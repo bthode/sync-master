@@ -1,1 +1,1 @@
-rootProject.name = "coretube"
+rootProject.name = "sync-master"

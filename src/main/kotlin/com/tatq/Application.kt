@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import com.tatq.plugins.configureIndex
 
 fun main() {
     embeddedServer(Jetty, port = 8080, host = "0.0.0.0", module = Application::module)
@@ -20,23 +21,15 @@ fun main() {
 }
 
 fun Application.module() {
-    configureSecurity()
-    configureHTTP()
+//    configureSecurity()
+    configureHTTP() // Need to understand what of this to keep
     configureMonitoring()
     configureSerialization()
     configureDatabases() // Do db migration here if it isn't in the state we need.
-    configureRouting()
-    launchPeriodicCoroutine()
-}
 
-fun launchPeriodicCoroutine() {
-    // Launch a coroutine using Dispatchers.IO
-    runBlocking {
-        launch(Dispatchers.IO) {
-            while (true) {
-                println("Coroutine executed at ${System.currentTimeMillis()}")
-                delay(30000)
-            }
-        }
-    }
+    // TODO configOurDB()
+    // TODO configOurRestEndpoints()
+
+    configureRouting()
+    configureIndex()
 }

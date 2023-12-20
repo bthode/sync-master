@@ -9,6 +9,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 // INFO: Gradle does very aggressive caching of test results, so if you change the test and it doesn't work, try to run it with --rerun-tasks option.
+// gradle test --rerun https://docs.gradle.org/current/userguide/java_testing.html#sec:forcing_java_tests_to_run
 class ApplicationTest {
     @Test
     fun testRoot() =

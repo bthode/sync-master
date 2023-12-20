@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.9.10"
-ktorVersion = "2.3.5"
+ktorVersion = "2.3.6"
 kotlinxSerialization = "1.6.0"
 kotlinxCoroutines = "1.7.3"
 
